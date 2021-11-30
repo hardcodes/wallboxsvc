@@ -1,0 +1,9 @@
+{
+    "web_bind_address": "127.0.0.1:8844",
+    "ssl_private_key_file": "conf.dev/wb-selfsigned.key",
+    "ssl_certificate_chain_file": "conf.dev/wb-selfsigned-cert.pem",
+    "get_relay_state_command": "conf.dev/bin/get-relay-state.sh",
+    "set_relay_state_command": "conf.dev/bin/set-relay-state.sh",
+    "user_id": "mobilephone",
+    "password": "secret"
+}

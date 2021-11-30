@@ -1,0 +1,376 @@
+body{
+    font-family: sans-serif;
+    font-size: 1.2em;
+    color: #162152;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li::before {
+    content: "\25A0";
+    color: #0655af;
+    display: inline-block; 
+    width: 0.5em;
+    margin-left: -1.0 em;
+}
+
+.mid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top:1em;
+}
+
+.wallbox-header{
+    background-color: #8ac1ff;
+    border-radius: 5px;
+    margin-left:10px;
+    margin-right:10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 5px;
+}
+
+.wallbox-header-links{
+    background-color: #0655af;
+    color: #000000;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-size: 1.3em;
+    line-height: 60px;
+}
+
+.wallbox-header-links a:hover{
+    background-color: #616161;
+    color: #FFFFFF;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-decoration: none;
+}
+
+.wallbox-header-links a:link,
+.wallbox-header-links a:visited
+{
+    color: #FFFFFF;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-decoration: none;
+}
+
+.wallbox-header-active a:link,
+.wallbox-header-active a:visited,
+.wallbox-header-active a:hover,
+.wallbox-header-active a:active
+{
+    color: #FFFFFF;
+    background-color: #616161;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-decoration: none;
+}
+
+.wallbox-main{
+    padding: 30px 30px;
+}
+
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.wallbox-image{
+    padding: 20px 20px;
+}
+
+input:read-only {
+    background-color: #E6F1D1;
+}
+
+input:-moz-read-only { /* For Firefox */
+    background-color: #E6F1D1;
+}
+
+textarea:read-only {
+    background-color: #E6F1D1;
+}
+
+textarea:-moz-read-only { /* For Firefox */
+    background-color: #E6F1D1;
+}
+
+input:invalid {
+    border: 2px dashed #9D132A;
+}
+
+input:valid {
+    border: 2px solid #84B819;
+}
+
+.errormsg {
+    color:#9D132A;
+    font-weight:bold;
+}
+
+.error-msg {
+    background-repeat: no-repeat;
+    background-position: 25px;
+    border-radius: 5px;
+    background-color: #9D132A;
+    box-shadow: 0px 0px 4px 4px grey;
+    color:#FFFFFF;
+    text-shadow: 0 0 5px#9D132A;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin: 20px 20px;
+    font-weight:bold;
+    font-size: 18px;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    text-align: center;
+    min-width: 50%;
+    z-index: 254;
+}
+
+.success-msg {
+    background-repeat: no-repeat;
+    background-position: 25px;
+    border-radius: 5px;
+    background-color: #639A00;
+    box-shadow: 0px 0px 4px 4px grey;
+    color:#FFFFFF;
+    text-shadow: 0 0 5px#639A00;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin: 20px 20px;
+    font-weight:bold;
+    font-size: 18px;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    text-align: center;
+    min-width: 50%;
+    z-index: 254;
+}
+
+.notify-msg {
+    background-repeat: no-repeat;
+    background-position: 10px;
+    border-radius: 5px;
+    background-color: #F3F8E8;
+    color:#000000;
+    padding-left: 80px;
+    padding-right: 25px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin: 20px 20px;
+    font-weight:bold;
+    text-align: center;
+    min-width: 30%;
+    max-width: 80%;
+    z-index: 254;
+    display: none;
+}
+
+.progress-spinner {
+    border: 10px solid #C9C9C9;
+    border-radius: 50%;
+    border-top: 10px solid #001455;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+    position:fixed;
+    top:50%;
+    left:49%;
+    z-index: 256;
+    visibility: visible;
+}
+  
+  /* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* code taken from
+ * https://codemyui.com/checkbox-designed-as-rocker-switch-in-pure-css/
+ *
+ * Copyright (c) 2021 by Marcus Connor (https://codepen.io/marcusconnor/pen/QJNvMa)
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ *
+ *The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ *
+ *THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+/* Switch starts here */
+.rocker {
+    display: inline-block;
+    position: relative;
+    /*
+    SIZE OF SWITCH
+    ==============
+    All sizes are in em - therefore
+    changing the font-size here
+    will change the size of the switch.
+    See .rocker-small below as example.
+    */
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: #888;
+    width: 7em;
+    height: 4em;
+    overflow: hidden;
+    border-bottom: 0.5em solid #eee;
+  }
+  
+  .rocker-small {
+    font-size: 0.75em; /* Sizes the switch */
+    margin: 1em;
+  }
+  
+  .rocker::before {
+    content: "";
+    position: absolute;
+    top: 0.5em;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #999;
+    border: 0.5em solid #eee;
+    border-bottom: 0;
+  }
+  
+  .rocker input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .switch-left,
+  .switch-right {
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5em;
+    width: 3em;
+    transition: 0.2s;
+  }
+  
+  .switch-left {
+    height: 2.4em;
+    width: 2.75em;
+    left: 0.85em;
+    bottom: 0.4em;
+    background-color: #ddd;
+    transform: rotate(15deg) skewX(15deg);
+  }
+  
+  .switch-right {
+    right: 0.5em;
+    bottom: 0;
+    background-color: #bd5757;
+    color: #fff;
+  }
+  
+  .switch-left::before,
+  .switch-right::before {
+    content: "";
+    position: absolute;
+    width: 0.4em;
+    height: 2.45em;
+    bottom: -0.45em;
+    background-color: #ccc;
+    transform: skewY(-65deg);
+  }
+  
+  .switch-left::before {
+    left: -0.4em;
+  }
+  
+  .switch-right::before {
+    right: -0.375em;
+    background-color: transparent;
+    transform: skewY(65deg);
+  }
+  
+  input:checked + .switch-left {
+    background-color: #306e51;
+    color: #fff;
+    bottom: 0px;
+    left: 0.5em;
+    height: 2.5em;
+    width: 3em;
+    transform: rotate(0deg) skewX(0deg);
+  }
+  
+  input:checked + .switch-left::before {
+    background-color: transparent;
+    width: 3.0833em;
+  }
+  
+  input:checked + .switch-left + .switch-right {
+    background-color: #ddd;
+    color: #888;
+    bottom: 0.4em;
+    right: 0.8em;
+    height: 2.4em;
+    width: 2.75em;
+    transform: rotate(-15deg) skewX(-15deg);
+  }
+  
+  input:checked + .switch-left + .switch-right::before {
+    background-color: #ccc;
+  }
+  
+  /* Keyboard Users */
+  input:focus + .switch-left {
+    color: #333;
+  }
+  
+  input:checked:focus + .switch-left {
+    color: #fff;
+  }
+  
+  input:focus + .switch-left + .switch-right {
+    color: #fff;
+  }
+  
+  input:checked:focus + .switch-left + .switch-right {
+    color: #333;
+  }
+  
+  
+  

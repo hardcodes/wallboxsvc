@@ -1,0 +1,4 @@
+/target
+ignore[-_]*
+/ignore
+/conf.dev/log/*

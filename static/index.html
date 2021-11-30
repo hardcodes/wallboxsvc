@@ -1,0 +1,96 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/wallboxsvc.css" />
+    <link rel="icon" type="image/png" href="./gfx/favicon.png" />
+    <title>Wallbox control service</title>
+</head>
+
+<body>
+    <header role="banner" class="wallbox-header">
+        <img style="float:left;" class="wallbox-image" src="./gfx/favicon.png" width="128" height="128" alt="Wallbox control service logo">
+        <h2>Wallbox control service</h1>
+    </header>
+
+    <noscript>
+        <p>
+            <div class="error-msg">Please activate Javascript!</div>
+        </p>
+    </noscript>
+
+    <main role="main" class="wallbox-main center">
+        <br />
+        <br />
+        <br />
+        <p>
+        <div class="mid">
+
+            <div id="RockerSwitch">
+                <label class="rocker">
+                    <input id="OnOffSwitch" type="checkbox" hidden onchange="flipSwitch(this)">
+                    <span class="switch-left">On</span>
+                    <span class="switch-right">Off</span>
+                </label>
+            </div>
+        </div>
+        </p>
+    </main>
+    <script src="./js/wallboxsvc.js"></script>
+    <script>
+
+        // hide rocker switch before querying the relay state the first time
+        document.getElementById("RockerSwitch").style.visibility = "hidden";
+        // query state of the relay and set rocker switch on or off
+        queryWebService("https://127.0.0.1:8844/get/relay_state", displayRelayState, hideInputs);
+
+        function hideInputs() {
+            document.getElementById("RockerSwitch").style.visibility = "hidden";
+            console.log("switch visible: " + document.getElementById("RockerSwitch").style.visibility);
+        }
+
+        function showInputs() {
+            document.getElementById("RockerSwitch").style.visibility = "visible";
+            console.log("switch visible: " + document.getElementById("RockerSwitch").style.visibility);
+        }
+
+        function displayRelayState(resulttext) {
+            console.log(resulttext);
+            var response = JSON.parse(resulttext);
+            console.log(response);
+            switch (response.state) {
+                case "on":
+                    showInputs();
+                    document.getElementById("OnOffSwitch").checked = true;
+                    break;
+                case "off":
+                    showInputs();
+                    document.getElementById("OnOffSwitch").checked = false;
+                    break;
+                default:
+                    hideInputs();
+                    showErrorMessage("ERROR: relay state is unknown!");
+                    break;
+            }
+            console.log("switch checked: " + document.getElementById("OnOffSwitch").checked);
+        }
+
+        function flipSwitch() {
+            console.log("flipping switch")
+            console.log("switch checked: " + document.getElementById("OnOffSwitch").checked);
+            var newState="";
+            // the function is called after the attribute "checked" was changed!
+            if (document.getElementById("OnOffSwitch").checked) {
+                newState = "on";
+            }
+            else {
+                newState = "off";
+            }
+            console.log("newState: " + newState);
+            queryWebService("https://127.0.0.1:8844/set/relay_state/" + newState, displayRelayState, hideInputs);
+        }
+
+    </script>
+</body>
+
+</html>
