@@ -2,7 +2,7 @@
 
 Little single page webservice that provides control to a simple wallbox.
 
-Since I have a parking space in front of the house, I've decided to buy a small NEV (new energy vehicle) or BEV (battery electric vehicle) and installed a *Heidelberg Wallbox Home Eco* to charge the battery of the car. It is a simple wallbox (which isn't much more than a fance three-phase plug) without wifi or electricity meter. Inside of the wallbox two wires can be attached instead of a default wired bridge to control if the wallbox will charge the car or not.
+Since I have a parking space in front of the house, I've decided to buy a small NEV (new energy vehicle) or BEV (battery electric vehicle) and installed a *Heidelberg Wallbox Home Eco* to charge the battery of the car. It is a simple wallbox (which isn't much more than a fancy three-phase wall outlet) without wifi or electricity meter. Inside of the wallbox two wires can be attached instead of a default wired bridge to control if the wallbox will charge the car or not.
 
 - If the two contacts are closed, the wallbox will charge a connected car.
 - if the two contacts are open, no power will be provided.
