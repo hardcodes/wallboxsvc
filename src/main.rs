@@ -43,6 +43,14 @@ async fn main() -> std::io::Result<()> {
         App::new()
             // Enable the logger.
             .wrap(middleware::Logger::default())
+            .wrap(middleware::DefaultHeaders::new().header(
+                "Strict-Transport-Security",
+                "max-age=31536000; includeSubDomains",
+            ))
+            .wrap(
+                middleware::DefaultHeaders::new()
+                    .header("Content-Security-Policy", "frame-ancestors 'none';"),
+            )
             //.wrap(auth)
             // clone of the application configuration
             .data(web_data.clone())
