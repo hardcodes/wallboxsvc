@@ -16,7 +16,7 @@ pub fn parse_cli_parameters<'p>(program_name: &str, program_version: &str) -> cl
 r##"Here is an example of a working configuration file:
 
 {
-    "web_bind_address": "129.217.210.99:8844",
+    "web_bind_address": "127.0.0.1::8844",
     "ssl_private_key_file": "conv.dev/wb-selfsigned.key",
     "ssl_certificate_chain_file": "conv.dev/wb-selfsigned-cert.pem",
     "get_relay_state_command": "conv.dev/bin/get-relay-state.sh",
