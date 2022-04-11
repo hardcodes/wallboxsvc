@@ -268,24 +268,6 @@ For development a self signed certificate is included, in production I use a cer
 mkdir conf.dev && cd conf.dev
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:4096 -keyout wb-selfsigned.key -out wb-selfsigned-cert.pem
 Generating a RSA private key
-.......++++
-...............................................................++++
-writing new private key to 'wb-selfsigned.key'
------
-You are about to be asked to enter information that will be incorporated
-into your certificate request.
-What you are about to enter is what is called a Distinguished Name or a DN.
-There are quite a few fields but you can leave some blank
-For some fields there will be a default value,
-If you enter '.', the field will be left blank.
------
-Country Name (2 letter code) [AU]:DE
-State or Province Name (full name) [Some-State]:NRW
-Locality Name (eg, city) []:Luenen
-Organization Name (eg, company) [Internet Widgits Pty Ltd]:^C
-╭─sven@prometheus-ubuntu ~/Documents/src/wallboxsvc/conf.dev ‹master*› 
-╰─$ openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:4096 -keyout wb-selfsigned.key -out wb-selfsigned-cert.pem                                                130 ↵
-Generating a RSA private key
 (...)
 Country Name (2 letter code) [AU]:DE   
 State or Province Name (full name) [Some-State]:NRW 
